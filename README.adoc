@@ -106,13 +106,13 @@ endif::[]
 
 {firstName}:: Jean-Michel
 
-{group} #::
+{group} #:: 3A
 
 [%interactive]
-- [X] {Enseignants}
+- [ ] {Enseignants}
 - [ ] 1
 - [ ] 2
-- [ ] 3
+- [X] 3
 - [ ] 4
 - [ ] Innopolis
 
