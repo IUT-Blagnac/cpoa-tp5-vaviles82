@@ -1,0 +1,26 @@
+@startuml
+class CourseViewer {
+  -JPanel sliderPanel
+  -JPanel coursePanel
+  -Vector <JSlider> sliders
+  -JScrollPane scrollPane
+  -JButton button
+  +void CourseViewer()
+  +void addCourse(CourseRecord courseRecord)
+  +void paint(Graphics g)
+  +void actionPerformed(ActionEvent arg0)
+  +void stateChanged(ChangeEvent arg0)
+  +{static}void main(String[] args)
+}
+
+class JFrame {
+}
+interface ActionListener {
+}
+interface Changelistener {
+}
+
+JFrame <|-- CourseViewer
+ActionListener <|.. CourseViewer
+Changelistener <|.. CourseViewer
+@enduml

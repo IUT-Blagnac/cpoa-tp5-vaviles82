@@ -1,0 +1,55 @@
+@startuml
+class CourseController {
+  -Vector <JSlider> sliders
+  -JPanel coursePanel
+  +void CourseController(CourseData courses)
+  +void addCourse(CourseRecord record)
+  +void update(Observable o)
+  +void actionPerformed(ActionEvent arg0)
+  +void stateChanged(ChangeEvent arg0)
+  +{static}void main(String[] args)
+}
+
+class BarChartObserver {
+  -Vector <CourseRecord> courseData
+  +BarChartObserver(CourseData data)
+  +void paint(Graphics g)
+  +void update(Observable o)
+}
+
+class CourseData {
+  -Vector <CourseRecord> courseData
+  +CourseData()
+  +void addCourseRecord(CourseRecord CourseRecord)
+  +void changeCourseRecord(String subjectName, int numOfStudents)
+  +Vector<CourseRecord> getUpdate()
+}
+
+abstract Observable{
+  #Vector <Observer> observers
+  +Observable()
+  +void attach(Observer o)
+  +void detach(Observer o)
+  +void notify(Observer o)
+  +{abstract}Object getUpdate()
+}
+
+class JPanel {
+}
+interface Observer {
+void update(Observable o)
+}
+interface ActionListener {
+}
+interface Changelistener {
+}
+
+JPanel <|-- CourseController
+JPanel <|-- BarChartObserver
+ActionListener <|.. CourseController
+Changelistener <|.. CourseController
+Observer <|.. CourseController
+Observer <|.. BarChartObserver
+CourseData <-- "1" CourseController : courseData
+Observable <|-- CourseData
+@enduml
